@@ -1,6 +1,5 @@
 "use client";
 
-import { postTodo } from "@/actions/apigateway.actions";
 import { createTodoAppsync } from "@/actions/appsync.actions";
 import { useUserStore } from "@/store/userStore";
 import { useState } from "react";
@@ -26,8 +25,7 @@ export default function TodoForm({ setShowTodoForm }: TodoFormProps) {
     };
 
     try {
-      //await createTodoAppsync(todoData);
-      await postTodo(sub as string, title);
+      await createTodoAppsync(todoData);
       // Reset the form fields or handle success
     } catch (error) {
       // Handle error
